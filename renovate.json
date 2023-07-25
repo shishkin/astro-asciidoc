@@ -9,5 +9,5 @@
     ":automergeTypes",
     "helpers:disableTypesNodeMajor"
   ],
-  "schedule": ["every weekend on the 3rd week of the month"],
+  "schedule": ["every weekend on the 3rd week of the month"]
 }
