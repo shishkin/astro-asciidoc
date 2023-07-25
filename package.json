@@ -1,0 +1,32 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/example",
+    "packages/astro-asciidoc"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=example",
+    "lint": "eslint --ext .ts,.js,.astro .",
+    "prebuild": "npm run lint",
+    "build": "npm run build --workspaces --if-present",
+    "release": "npm run release --workspace=astro-asciidoc",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "@types/eslint": "8.44.0",
+    "@types/prettier": "2.7.3",
+    "@typescript-eslint/eslint-plugin": "6.1.0",
+    "@typescript-eslint/parser": "6.1.0",
+    "eslint": "8.45.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-astro": "0.27.2",
+    "eslint-plugin-prettier": "5.0.0",
+    "husky": "8.0.3",
+    "prettier": "3.0.0",
+    "prettier-plugin-astro": "0.11.0"
+  },
+  "dependencies": {}
+}
