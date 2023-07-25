@@ -1,0 +1,31 @@
+= Astro AsciiDoc
+Sergey Shishkin <sergey@shishkin.org>
+:layout: ~/layouts/Main.astro
+:toclevels: 2
+:numbered:
+
+Support AsciiDoc pages in Astro.
+
+== Introduction
+
+Text paragraph.
+
+=== Lists
+
+* List item
+* Another item
+
+=== Code
+
+[source,javascript]
+----
+import { defineConfig } from "astro/config";
+import asciidoc from "astro-asciidoc";
+
+export default defineConfig({
+  integrations: [asciidoc()],
+});
+----
+
+
+include::_include.adoc[]
