@@ -1,6 +1,6 @@
 {
   "name": "astro-asciidoc",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Support AsciiDoc pages in Astro",
   "type": "module",
   "main": "./src/index.ts",
@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "tsc --noEmit",
-    "release": "semantic-release"
+    "release": "echo release"
   },
   "repository": {
     "type": "git",
@@ -35,11 +35,7 @@
     "vite": "^4.3.9"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/git": "10.0.1",
-    "@types/semantic-release": "20.0.1",
     "astro": "2.9.3",
-    "semantic-release": "21.0.7",
     "typescript": "5.1.6"
   },
   "dependencies": {
