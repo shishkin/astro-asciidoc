@@ -1,0 +1,12 @@
+{
+  "github": {
+    "release": true,
+    "draft": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
