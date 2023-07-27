@@ -3,16 +3,26 @@
   "version": "0.0.0",
   "description": "Support AsciiDoc pages in Astro",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./src/index.js": "./src/index.ts"
   },
+  "main": "./dist/index.cjs",
   "files": [
+    "dist",
     "src"
   ],
   "scripts": {
-    "build": "tsc --noEmit",
+    "build": "unbuild",
     "release": "echo release"
   },
   "repository": {
@@ -36,7 +46,8 @@
   },
   "devDependencies": {
     "astro": "2.9.3",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "unbuild": "v2.0.0-rc.0"
   },
   "dependencies": {
     "@asciidoctor/core": "3.0.2"

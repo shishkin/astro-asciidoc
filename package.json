@@ -2,14 +2,14 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/example",
-    "packages/astro-asciidoc"
+    "packages/astro-asciidoc",
+    "packages/example"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=example",
     "lint": "eslint --ext .ts,.js,.astro .",
     "prebuild": "npm run lint",
-    "build": "npm run build --workspaces --if-present",
+    "build": "npm run build --workspaces",
     "release": "npm run release --workspace=astro-asciidoc",
     "prepare": "husky install"
   },

@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import asciidoc from "astro-asciidoc";
+import asciidoc from "astro-asciidoc/src/index.js";
 import * as shiki from "shiki";
 
 const highlighter = await shiki.getHighlighter({
