@@ -1,13 +1,8 @@
-import type { AstroIntegration, MarkdownHeading } from "astro";
-import type { Plugin as VitePlugin, ViteDevServer } from "vite";
-import asciidoctor, {
-  type ProcessorOptions,
-  type SyntaxHighlighterFunctions,
-  type Extensions,
-  type Document,
-  type Section,
-} from "@asciidoctor/core";
-import { pathToFileURL, fileURLToPath } from "node:url";
+import type { ProcessorOptions } from "@asciidoctor/core";
+import type { AstroIntegration } from "astro";
+import type { ViteDevServer, Plugin as VitePlugin } from "vite";
+import AsciidocConverter from "./asciidoctor.js";
+import type { InitOptions } from "./worker.js";
 
 type InternalHookParams = Parameters<
   NonNullable<AstroIntegration["hooks"]["astro:config:setup"]>
@@ -15,74 +10,31 @@ type InternalHookParams = Parameters<
   addPageExtension(ext: string): void;
 };
 
-type Catalog = {
-  [key: string]: any;
-  refs: {
-    [key: string]: any;
-    $$smap: {
-      [key: string]: {
-        [key: string]: any;
-        id: string;
-        title: string;
-        level: number;
-      };
-    };
-  };
-  includes: {
-    [key: string]: any;
-    $$keys: string[];
-  };
-};
-
-export interface Options {
+/**
+ * Options for AsciiDoc conversion.
+ */
+export interface Options extends InitOptions {
+  /**
+   * Options passed to Asciidoctor document load and document convert.
+   */
   options?: ProcessorOptions;
-  extensions?: ((this: Extensions.Registry) => void)[];
-  highlighters?: Record<string, SyntaxHighlighterFunctions>;
 }
 
 export default function asciidoc(opts?: Options): AstroIntegration {
-  const fileExt = ".adoc";
-  const asciidocOptions: ProcessorOptions = opts?.options ?? {};
-  const converter = asciidoctor();
+  const asciidocFileExt = ".adoc";
+  const { options: documentOptions, highlighters } = opts ?? {};
+  const converter = new AsciidocConverter({
+    highlighters,
+  });
   let server: ViteDevServer;
 
-  opts?.extensions?.length && opts.extensions.forEach((f) => converter.Extensions.register(f));
-
-  opts?.highlighters &&
-    Object.entries(opts.highlighters).forEach(([name, f]) =>
-      converter.SyntaxHighlighter.register(name, f),
-    );
-
-  function watchIncludes(file: string, catalog: Catalog) {
-    for (let include of catalog.includes.$$keys) {
-      if (!include.endsWith(fileExt)) {
-        include = `${include}${fileExt}`;
-      }
-      const fileUrl = new URL(include, pathToFileURL(file));
-      const filePath = fileURLToPath(fileUrl);
-      server.watcher.on("change", async (f) => {
-        if (f !== filePath) return;
-        const m = server.moduleGraph.getModuleById(file);
-        m && (await server.reloadModule(m));
-      });
-      server.watcher.add(filePath);
-    }
-  }
-
-  function getHeadings(doc: Document): MarkdownHeading[] {
-    const tocLevels = doc.getAttribute("toclevels", 2) as number;
-    return doc
-      .findBy({ context: "section" }, (b) => b.getLevel() > 0 && b.getLevel() <= tocLevels)
-      .map((b) => {
-        const section = b as Section;
-        return {
-          text: section.isNumbered()
-            ? `${section.getSectionNumber()} ${section.getName()}`
-            : section.getName(),
-          slug: section.getId(),
-          depth: section.getLevel(),
-        };
-      });
+  function watchIncludes(file: string, includes: string[]) {
+    server.watcher.on("change", async (f) => {
+      if (!includes.includes(f)) return;
+      const m = server.moduleGraph.getModuleById(file);
+      m && (await server.reloadModule(m));
+    });
+    server.watcher.add(includes);
   }
 
   return {
@@ -91,7 +43,7 @@ export default function asciidoc(opts?: Options): AstroIntegration {
       "astro:config:setup": (params) => {
         const { addPageExtension, updateConfig, addWatchFile } = params as InternalHookParams;
 
-        addPageExtension(fileExt);
+        addPageExtension(asciidocFileExt);
 
         updateConfig({
           vite: {
@@ -101,35 +53,28 @@ export default function asciidoc(opts?: Options): AstroIntegration {
                 configureServer(s) {
                   server = s;
                 },
-                transform(_code, id) {
-                  if (!id.endsWith(fileExt)) return;
+                async transform(_code, id) {
+                  if (!id.endsWith(asciidocFileExt)) return;
 
-                  const doc = converter.loadFile(id, asciidocOptions);
-                  const layout = doc.getAttribute("layout") as string | undefined;
-                  const html = doc.convert(<ProcessorOptions>{
-                    standalone: !layout,
-                    ...asciidocOptions,
+                  const doc = await converter.convert({
+                    file: id,
+                    options: documentOptions,
                   });
-                  const headings = getHeadings(doc);
-                  const frontmatter = {
-                    title: doc.getTitle(),
-                    asciidoc: doc.getAttributes(),
-                  };
 
-                  watchIncludes(id, doc.getCatalog() as Catalog);
+                  watchIncludes(id, doc.includes);
 
                   return {
                     code: `import { Fragment, jsx as h } from "astro/jsx-runtime";
-${layout ? `import Layout from ${JSON.stringify(layout)};` : ""}
+${doc.layout ? `import Layout from ${JSON.stringify(doc.layout)};` : ""}
 export const file = ${JSON.stringify(id)};
-export const title = ${JSON.stringify(frontmatter.title)};
-export const frontmatter = ${JSON.stringify(frontmatter)};
-export const headings = ${JSON.stringify(headings)};
+export const title = ${JSON.stringify(doc.frontmatter.title)};
+export const frontmatter = ${JSON.stringify(doc.frontmatter)};
+export const headings = ${JSON.stringify(doc.headings)};
 export async function getHeadings() { return headings; }
 export async function Content() {
-  const content = h(Fragment, { "set:html": ${JSON.stringify(html)} });
+  const content = h(Fragment, { "set:html": ${JSON.stringify(doc.html)} });
   ${
-    layout
+    doc.layout
       ? `return h(Layout, { title, headings, frontmatter, children: content });`
       : `return content;`
   }
@@ -149,6 +94,12 @@ export default Content;`,
         });
 
         addWatchFile(new URL(import.meta.url));
+      },
+      "astro:server:done": async () => {
+        await converter.terminate();
+      },
+      "astro:build:done": async () => {
+        await converter.terminate();
       },
     },
   };

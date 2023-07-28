@@ -9,15 +9,16 @@ Attention: this package hasn't reached v1 yet and breaking changes may be introd
 
 ## Features
 
-- Convert AsciiDoc pages with [AsciiDoctor.js](https://docs.asciidoctor.org/asciidoctor.js/latest/)
+- Convert AsciiDoc pages with [Asciidoctor.js](https://docs.asciidoctor.org/asciidoctor.js/latest/)
 - Support of AsciiDoc `include`s
 - Hot reloading of pages and includes
 - Access AsciiDoc page attributes in frontmatter props
 - Support of Astro layouts
 - Render pages in standalone mode if no layout provided
 - Page outline/TOC is available in props as Astro `MarkdownHeadings`
-- Provide AsciiDoctor converter options
-- Register AsciiDoctor extensions and syntax highlighters
+- Provide Asciidoctor converter options
+- Register Asciidoctor extensions and syntax highlighters
+- Runs Asciidoctor in a worker thread to prevent prototype pollution from Opal/Ruby runtime
 
 ## Usage
 
@@ -96,3 +97,12 @@ const { title = "Astro", headings = [] } = Astro.props;
 ```
 
 See [example](./packages/example/) project for more details.
+
+## Caveats
+
+NOTE: This integration runs Asciidoctor in a worker thread to prevent [prototype pollution](https://github.com/shishkin/astro-asciidoc/issues/3) from Opal/Ruby runtime.
+That means that all options that need to be passed to the Asciidoctor converter need to be serializable according to [worker threads message passing limitations](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+In particular it is currently not possible to pass extensions and syntax highlighters as functions.
+They need to be in separate Javascript modules and passed through via module file path.
+Writing extensions and syntax highlighters in TypeScript is also currently not possible.
+See [example](./packages/example/) project for a sample syntax highlighter integration.

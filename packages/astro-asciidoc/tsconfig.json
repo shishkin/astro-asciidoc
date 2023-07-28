@@ -1,7 +1,8 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "exactOptionalPropertyTypes": false
   },
   "include": ["src"],
   "exclude": ["node_modules"]

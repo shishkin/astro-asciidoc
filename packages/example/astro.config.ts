@@ -1,10 +1,6 @@
 import { defineConfig } from "astro/config";
-import asciidoc from "astro-asciidoc/src/index.js";
-import * as shiki from "shiki";
-
-const highlighter = await shiki.getHighlighter({
-  theme: "solarized-light",
-});
+import asciidoc from "astro-asciidoc";
+import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   integrations: [
@@ -17,11 +13,9 @@ export default defineConfig({
       },
       highlighters: {
         shiki: {
-          handlesHighlighting() {
-            return true;
-          },
-          highlight(_node, source, lang, _opts) {
-            return highlighter.codeToHtml(source, { lang });
+          path: fileURLToPath(new URL("shiki-highlighter.js", import.meta.url)),
+          options: {
+            theme: "solarized-light",
           },
         },
       },
