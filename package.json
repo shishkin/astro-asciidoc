@@ -34,7 +34,7 @@
     "build": "unbuild",
     "ci": "npm run build && npm run build --workspace=example",
     "prepare": "husky install",
-    "release": "release-it --preRelease=rc"
+    "release": "release-it"
   },
   "release-it": {
     "plugins": {
@@ -50,7 +50,7 @@
       "publish": true
     },
     "github": {
-      "draft": true
+      "release": true
     }
   },
   "repository": {
