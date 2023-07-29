@@ -96,13 +96,23 @@ const { title = "Astro", headings = [] } = Astro.props;
 </html>
 ```
 
-See [example](./packages/example/) project for more details.
+See [example](./example/) project for more details.
 
 ## Caveats
 
-NOTE: This integration runs Asciidoctor in a worker thread to prevent [prototype pollution](https://github.com/shishkin/astro-asciidoc/issues/3) from Opal/Ruby runtime.
+NOTE: This integration runs Asciidoctor in a worker thread to prevent [prototype pollution](https://github.com/shishkin/astro-asciidoc/issues/3) from the Opal/Ruby runtime.
 That means that all options that need to be passed to the Asciidoctor converter need to be serializable according to [worker threads message passing limitations](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 In particular it is currently not possible to pass extensions and syntax highlighters as functions.
 They need to be in separate Javascript modules and passed through via module file path.
 Writing extensions and syntax highlighters in TypeScript is also currently not possible.
-See [example](./packages/example/) project for a sample syntax highlighter integration.
+See [example](./example/) project for a sample syntax highlighter integration.
+
+## Alternatives
+
+Depending on your particular needs you might be interested in other similar projects:
+
+- [**astro-adoc**](https://github.com/devidw/astro-addons/tree/main/packages/astro-adoc) - load or glob `.adoc` documents and render them in a provided component;
+- [**vite-plugin-asciidoc**](https://github.com/Djaler/vite-plugin-asciidoc) - General AsciiDoc Vite loader without any special Astro integration;
+- [**rollup-plugin-asciidoc**](https://github.com/carlosvin/rollup-plugin-asciidoc) - Genral AsciiDoc Rollup loader without any special Astro integration;
+
+When I last checked, those ran Asciidoctor directly and didn't prevent [prototype pollution](https://github.com/shishkin/astro-asciidoc/issues/3) from the Opal/Ruby runtime.
