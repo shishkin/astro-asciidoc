@@ -1,0 +1,10 @@
+---
+import Layout from "~/layouts/Main.astro";
+import * as doc from "./index.adoc";
+---
+
+<Layout title={doc.title} headings={doc.headings}>
+  <p>written by {doc.frontmatter.asciidoc.author}</p>
+  <doc.Content />
+  <p>File: {doc.file}</p>
+</Layout>
