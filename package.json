@@ -1,21 +1,80 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "astro-asciidoc",
+  "version": "0.0.1-rc.1",
+  "description": "Support AsciiDoc pages in Astro",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./src/index.js": "./src/index.ts"
+  },
+  "main": "./dist/index.cjs",
+  "files": [
+    "dist",
+    "src"
+  ],
   "workspaces": [
-    "packages/astro-asciidoc",
-    "packages/example"
+    "example"
   ],
   "scripts": {
+    "astro": "npm exec --workspace=example -- astro",
     "dev": "npm run dev --workspace=example",
+    "start": "npm run dev",
     "lint": "eslint --ext .ts,.js,.astro .",
     "prebuild": "npm run lint",
-    "build": "npm run build --workspaces",
-    "release": "npm run release --workspace=astro-asciidoc",
-    "prepare": "husky install"
+    "build": "unbuild",
+    "ci": "npm run build && npm run build --workspace=example",
+    "prepare": "husky install",
+    "release": "release-it --preRelease=rc"
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "conventionalcommits",
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "git": {
+      "requireCleanWorkingDir": false
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "draft": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shishkin/astro-asciidoc.git"
+  },
+  "homepage": "https://github.com/shishkin/astro-asciidoc",
+  "keywords": [
+    "astro",
+    "astro-integration",
+    "withastro",
+    "asciidoc",
+    "asciidoctor",
+    "adoc"
+  ],
+  "author": "Sergey Shishkin <sergey@shishkin.org>",
+  "license": "MIT",
+  "peerDependencies": {
+    "astro": "^2.8.0",
+    "vite": "^4.3.9"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",
     "@commitlint/config-conventional": "17.6.7",
+    "@release-it/conventional-changelog": "7.0.0",
     "@types/eslint": "8.44.1",
     "@types/prettier": "2.7.3",
     "@typescript-eslint/eslint-plugin": "6.2.0",
@@ -26,7 +85,13 @@
     "eslint-plugin-prettier": "5.0.0",
     "husky": "8.0.3",
     "prettier": "3.0.0",
-    "prettier-plugin-astro": "0.11.0"
+    "prettier-plugin-astro": "0.11.0",
+    "astro": "2.9.3",
+    "release-it": "16.1.3",
+    "typescript": "5.1.6",
+    "unbuild": "v2.0.0-rc.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@asciidoctor/core": "3.0.2"
+  }
 }
