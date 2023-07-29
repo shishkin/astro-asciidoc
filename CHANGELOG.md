@@ -1,5 +1,7 @@
 
 
+## [0.0.1](https://github.com/shishkin/astro-asciidoc/compare/0.0.1-rc.2...0.0.1) (2023-07-29)
+
 ## [0.0.1-rc.2](https://github.com/shishkin/astro-asciidoc/compare/0.0.1-rc.1...0.0.1-rc.2) (2023-07-29)
 
 ## [0.0.1-rc.1](https://github.com/shishkin/astro-asciidoc/compare/0.0.1-rc.0...0.0.1-rc.1) (2023-07-28)
