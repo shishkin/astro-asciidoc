@@ -87,7 +87,7 @@
     "husky": "8.0.3",
     "prettier": "3.0.1",
     "prettier-plugin-astro": "0.11.0",
-    "astro": "2.9.3",
+    "astro": "2.10.7",
     "release-it": "16.1.4",
     "typescript": "5.1.6",
     "unbuild": "v2.0.0-rc.0"
