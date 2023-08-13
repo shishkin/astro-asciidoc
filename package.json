@@ -85,7 +85,7 @@
     "eslint-plugin-astro": "0.27.2",
     "eslint-plugin-prettier": "5.0.0",
     "husky": "8.0.3",
-    "prettier": "3.0.0",
+    "prettier": "3.0.1",
     "prettier-plugin-astro": "0.11.0",
     "astro": "2.9.3",
     "release-it": "16.1.3",
