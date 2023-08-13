@@ -1,13 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":semanticCommits",
-    ":automergeMinor",
-    ":automergeLinters",
-    ":automergeTesters",
-    ":automergeTypes",
-    "helpers:disableTypesNodeMajor"
-  ],
-  "schedule": ["every weekend on the 3rd week of the month"]
+  "extends": ["config:base", ":semanticCommits", "helpers:disableTypesNodeMajor"],
+  "timezone": "Europe/Berlin",
+  "schedule": ["every weekend on the 3rd week of the month"],
+  "automergeType": "branch",
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "devDependencies",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["astro", "@astrojs/"],
+      "groupName": "astro",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["@asciidoctor/"],
+      "groupName": "asciidoctor",
+      "automerge": true
+    }
+  ]
 }
