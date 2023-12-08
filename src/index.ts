@@ -1,5 +1,6 @@
 import type { ProcessorOptions } from "@asciidoctor/core";
 import type { AstroIntegration } from "astro";
+import astroJsx from "astro/jsx/renderer.js";
 import type { ViteDevServer, Plugin as VitePlugin } from "vite";
 import AsciidocConverter from "./asciidoctor.js";
 import type { InitOptions } from "./worker.js";
@@ -41,8 +42,10 @@ export default function asciidoc(opts?: Options): AstroIntegration {
     name: "asciidoc",
     hooks: {
       "astro:config:setup": (params) => {
-        const { addPageExtension, updateConfig, addWatchFile } = params as InternalHookParams;
+        const { addPageExtension, addRenderer, updateConfig, addWatchFile } =
+          params as InternalHookParams;
 
+        addRenderer(astroJsx);
         addPageExtension(asciidocFileExt);
 
         updateConfig({
