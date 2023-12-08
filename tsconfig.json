@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "baseUrl": ".",
+    "moduleResolution": "Node",
     "exactOptionalPropertyTypes": false
   },
   "include": ["src"],
