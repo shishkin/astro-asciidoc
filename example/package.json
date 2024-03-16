@@ -13,7 +13,7 @@
     "typescript": "5.4.2"
   },
   "dependencies": {
-    "astro": "4.4.15",
+    "astro": "4.5.5",
     "astro-asciidoc": "file:..",
     "shiki": "0.14.7"
   }
