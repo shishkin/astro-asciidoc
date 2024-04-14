@@ -73,14 +73,14 @@
     "vite": "^4.3.9 || ^5.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.2.0",
+    "@commitlint/cli": "19.2.1",
     "@commitlint/config-conventional": "19.1.0",
     "@release-it/conventional-changelog": "8.0.1",
-    "@types/eslint": "8.56.5",
+    "@types/eslint": "8.56.9",
     "@astrojs/check": "0.5.10",
     "@types/prettier": "2.7.3",
-    "@typescript-eslint/eslint-plugin": "7.2.0",
-    "@typescript-eslint/parser": "7.2.0",
+    "@typescript-eslint/eslint-plugin": "7.6.0",
+    "@typescript-eslint/parser": "7.6.0",
     "astro": "4.6.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
@@ -89,8 +89,8 @@
     "husky": "9.0.11",
     "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
-    "release-it": "17.1.1",
-    "typescript": "5.4.2",
+    "release-it": "17.2.0",
+    "typescript": "5.4.5",
     "unbuild": "2.0.0"
   },
   "dependencies": {

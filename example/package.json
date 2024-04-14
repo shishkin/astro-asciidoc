@@ -10,7 +10,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "typescript": "5.4.2"
+    "typescript": "5.4.5"
   },
   "dependencies": {
     "astro": "4.6.1",
