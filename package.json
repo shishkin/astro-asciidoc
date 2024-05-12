@@ -78,7 +78,7 @@
     "@release-it/conventional-changelog": "8.0.1",
     "@types/eslint": "8.56.10",
     "@astrojs/check": "0.6.0",
-    "@types/prettier": "2.7.3",
+    "@types/prettier": "3.0.0",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
     "astro": "4.8.2",
