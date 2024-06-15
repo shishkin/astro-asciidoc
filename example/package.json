@@ -15,6 +15,6 @@
   "dependencies": {
     "astro": "4.10.2",
     "astro-asciidoc": "file:..",
-    "shiki": "0.14.7"
+    "shiki": "1.6.5"
   }
 }
