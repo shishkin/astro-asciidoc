@@ -34,7 +34,7 @@
     "build": "unbuild",
     "ci": "npm run build && npm run build --workspace=example",
     "prepare": "husky",
-    "release": "release-it"
+    "release": "release-it --npm.skipChecks"
   },
   "release-it": {
     "plugins": {
