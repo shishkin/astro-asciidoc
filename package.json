@@ -33,7 +33,7 @@
     "prebuild": "npm run lint",
     "build": "unbuild",
     "ci": "npm run build && npm run build --workspace=example",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "release-it"
   },
   "release-it": {
