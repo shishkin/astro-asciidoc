@@ -1,18 +1,21 @@
 import * as shiki from "shiki";
 
 /**
- * @param {shiki.HighlighterOptions} options
+ * @param {Parameters<shiki.getSingletonHighlighter>[0]} options
  * @returns {import("@asciidoctor/core").SyntaxHighlighterFunctions}
  */
 export default async function (options) {
-  const highlighter = await shiki.getHighlighter(options);
+  const highlighter = await shiki.getSingletonHighlighter(options);
 
   return {
     handlesHighlighting() {
       return true;
     },
     highlight(_node, source, lang, _opts) {
-      return highlighter.codeToHtml(source, { lang });
+      return highlighter.codeToHtml(source, {
+        lang,
+        theme: options?.themes?.[0] ?? "min-light",
+      });
     },
   };
 }
