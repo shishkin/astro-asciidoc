@@ -10,11 +10,11 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "shiki": "1.12.1",
     "typescript": "5.5.4"
   },
   "dependencies": {
     "astro": "4.14.2",
-    "astro-asciidoc": "file:..",
-    "shiki": "1.12.1"
+    "astro-asciidoc": "file:.."
   }
 }
