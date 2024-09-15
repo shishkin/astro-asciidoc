@@ -7,7 +7,7 @@ import type {
 } from "@asciidoctor/core";
 import asciidoctor from "@asciidoctor/core";
 import type { MarkdownHeading } from "astro";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL, URL } from "node:url";
 import { parentPort, workerData } from "node:worker_threads";
 
 export interface InitOptions {
