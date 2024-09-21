@@ -10,7 +10,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "shiki": "1.17.6",
+    "shiki": "1.18.0",
     "typescript": "5.6.2"
   },
   "dependencies": {
