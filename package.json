@@ -75,7 +75,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
-    "@release-it/conventional-changelog": "8.0.2",
+    "@release-it/conventional-changelog": "9.0.0",
     "@types/eslint": "9.6.1",
     "@astrojs/check": "0.9.4",
     "@typescript-eslint/eslint-plugin": "8.8.1",
