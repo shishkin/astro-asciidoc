@@ -14,7 +14,7 @@
     "typescript": "5.6.3"
   },
   "dependencies": {
-    "astro": "4.16.2",
+    "astro": "4.16.6",
     "astro-asciidoc": "file:.."
   }
 }
