@@ -42,6 +42,7 @@ export default defineConfig({
     asciidoc({
       options: {
         /* Asciidoctor.js options */
+        safe: "server",
       },
     }),
   ],
@@ -53,6 +54,7 @@ export default defineConfig({
 Add `.adoc` pages to `src/pages/` directory:
 
 ```asciidoc
+// src/pages/demo.adoc
 = Page Title
 :layout: ./src/layouts/Main.astro
 
@@ -67,6 +69,7 @@ Use frontmatter and props in the layout:
 
 ```astro
 ---
+// src/layouts/Main.astro
 import type { MarkdownHeading } from "astro";
 export interface Props {
   title?: string;
