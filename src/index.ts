@@ -1,7 +1,7 @@
 import type { ProcessorOptions } from "@asciidoctor/core";
 import type { AstroIntegration } from "astro";
 import astroJsx from "astro/jsx/renderer.js";
-import type { ViteDevServer, Plugin as VitePlugin } from "vite";
+import type { ViteDevServer } from "vite";
 import AsciidocConverter from "./asciidoctor.js";
 import type { InitOptions } from "./worker.js";
 
@@ -54,7 +54,8 @@ export default function asciidoc(opts?: Options): AstroIntegration {
               {
                 name: "vite-plugin-astro-asciidoc",
                 configureServer(s) {
-                  server = s;
+                  // @ts-expect-error type conflict in dependencies
+                  server = s as ViteDevServer;
                 },
                 async transform(_code, id) {
                   if (!id.endsWith(asciidocFileExt)) return;
@@ -92,7 +93,7 @@ export default Content;`,
                   };
                 },
               },
-            ] as VitePlugin[],
+            ],
           },
         });
 
