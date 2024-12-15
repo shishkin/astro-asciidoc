@@ -90,7 +90,7 @@
     "prettier-plugin-astro": "0.14.1",
     "release-it": "17.10.0",
     "typescript": "5.7.2",
-    "unbuild": "2.0.0"
+    "unbuild": "3.0.1"
   },
   "dependencies": {
     "@asciidoctor/core": "3.0.4"
