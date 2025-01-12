@@ -75,11 +75,11 @@
   "devDependencies": {
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
-    "@release-it/conventional-changelog": "9.0.3",
+    "@release-it/conventional-changelog": "9.0.4",
     "@types/eslint": "9.6.1",
     "@astrojs/check": "0.9.4",
-    "@typescript-eslint/eslint-plugin": "8.18.1",
-    "@typescript-eslint/parser": "8.18.1",
+    "@typescript-eslint/eslint-plugin": "8.19.1",
+    "@typescript-eslint/parser": "8.19.1",
     "astro": "4.16.18",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
@@ -88,9 +88,9 @@
     "husky": "9.1.7",
     "prettier": "3.4.2",
     "prettier-plugin-astro": "0.14.1",
-    "release-it": "17.10.0",
-    "typescript": "5.7.2",
-    "unbuild": "3.0.1"
+    "release-it": "17.11.0",
+    "typescript": "5.7.3",
+    "unbuild": "3.2.0"
   },
   "dependencies": {
     "@asciidoctor/core": "3.0.4"
