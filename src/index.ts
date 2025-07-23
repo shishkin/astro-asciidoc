@@ -1,9 +1,9 @@
-import type { ProcessorOptions } from "@asciidoctor/core";
-import type { AstroIntegration } from "astro";
-import astroJsx from "astro/jsx/renderer.js";
-import type { ViteDevServer } from "vite";
+import type {ProcessorOptions} from "@asciidoctor/core";
+import type {AstroIntegration} from "astro";
+import {fileURLToPath} from "url";
+import type {ViteDevServer} from "vite";
 import AsciidocConverter from "./asciidoctor.js";
-import type { InitOptions } from "./worker.js";
+import type {InitOptions} from "./worker.js";
 
 type InternalHookParams = Parameters<
   NonNullable<AstroIntegration["hooks"]["astro:config:setup"]>
@@ -45,7 +45,12 @@ export default function asciidoc(opts?: Options): AstroIntegration {
         const { addPageExtension, addRenderer, updateConfig, addWatchFile } =
           params as InternalHookParams;
 
-        addRenderer(astroJsx);
+        addRenderer({
+          name: "astro-asciidoc",
+          serverEntrypoint: fileURLToPath(
+              new URL("./renderer.js", import.meta.url),
+          ),
+      });
         addPageExtension(asciidocFileExt);
 
         updateConfig({
