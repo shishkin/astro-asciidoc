@@ -10,11 +10,12 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
     "shiki": "3.12.2",
     "typescript": "5.9.2"
   },
   "dependencies": {
     "astro": "4.16.19",
-    "astro-asciidoc": "file:.."
+    "astro-asciidoc": "workspace:*"
   }
 }
