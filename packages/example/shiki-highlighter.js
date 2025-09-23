@@ -11,7 +11,7 @@ export default async function (options) {
     handlesHighlighting() {
       return true;
     },
-    highlight(_node, source, lang, _opts) {
+    highlight(_node, source, lang) {
       return highlighter.codeToHtml(source, {
         lang,
         theme: options?.themes?.[0] ?? "min-light",

@@ -1,0 +1,55 @@
+{
+  "name": "astro-asciidoc",
+  "version": "0.0.3",
+  "description": "Support AsciiDoc pages in Astro",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./types": "./dist/types.d.ts",
+    "./src/index.js": "./src/index.ts"
+  },
+  "main": "./dist/index.cjs",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shishkin/astro-asciidoc.git"
+  },
+  "homepage": "https://github.com/shishkin/astro-asciidoc",
+  "keywords": [
+    "astro",
+    "astro-integration",
+    "withastro",
+    "asciidoc",
+    "asciidoctor",
+    "adoc"
+  ],
+  "author": "Sergey Shishkin <sergey@shishkin.org>",
+  "license": "MIT",
+  "dependencies": {
+    "@asciidoctor/core": "3.0.4"
+  },
+  "devDependencies": {
+    "astro": "4.16.19",
+    "typescript": "5.9.2",
+    "unbuild": "3.6.1"
+  },
+  "peerDependencies": {
+    "astro": "^2.8.0 || ^3.0.0 || ^4.0.0",
+    "vite": "^4.3.9 || ^5.0.0 || ^6.0.0 || ^7.0.0"
+  }
+}

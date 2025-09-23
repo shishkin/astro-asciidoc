@@ -7,7 +7,7 @@ declare module "*.adoc" {
   export const title: string | undefined;
   export const frontmatter: {
     title?: string;
-    asciidoc: Record<string, any>;
+    asciidoc: Record<string, unknown>;
   };
   export const headings: MarkdownHeading[];
   export const Content: AstroComponentFactory;

@@ -27,7 +27,7 @@ export interface InitOptions {
            * If default export is a function it will receive these options as
            * an argument.
            */
-          options?: any;
+          options?: object;
         };
   };
 
@@ -46,7 +46,7 @@ export interface InitOptions {
          * If default export is a function it will receive these options as
          * an argument.
          */
-        options?: any;
+        options?: object;
       }
   )[];
 }
@@ -61,7 +61,7 @@ export interface OutputMessage {
   layout?: string;
   frontmatter: {
     title?: string;
-    asciidoc: Record<string, any>;
+    asciidoc: Record<string, unknown>;
   };
   headings: MarkdownHeading[];
   includes: string[];
@@ -70,12 +70,12 @@ export interface OutputMessage {
 type AsciidoctorExtension = NonNullable<Parameters<Asciidoctor["Extensions"]["register"]>[0]>;
 
 type Catalog = {
-  [key: string]: any;
+  [key: string]: unknown;
   refs: {
-    [key: string]: any;
+    [key: string]: unknown;
     $$smap: {
       [key: string]: {
-        [key: string]: any;
+        [key: string]: unknown;
         id: string;
         title: string;
         level: number;
@@ -83,7 +83,7 @@ type Catalog = {
     };
   };
   includes: {
-    [key: string]: any;
+    [key: string]: unknown;
     $$keys: string[];
   };
 };
@@ -117,10 +117,10 @@ function getIncludes(file: string, catalog: Catalog): string[] {
   return includes;
 }
 
-async function loadModule<T>(path: string, opts?: any): Promise<T> {
+async function loadModule<T>(path: string, opts?: object): Promise<T> {
   const { default: mod } = await import(path);
   return mod instanceof Function || typeof mod === "function"
-    ? ((mod as Function).apply(mod, typeof opts === "undefined" ? [] : [opts]) as T)
+    ? ((mod as (opts?: object) => T).apply(mod, typeof opts === "undefined" ? [] : [opts]) as T)
     : (mod as T);
 }
 

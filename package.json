@@ -1,38 +1,14 @@
 {
-  "name": "astro-asciidoc",
-  "version": "0.0.3",
-  "description": "Support AsciiDoc pages in Astro",
+  "name": "workspace",
+  "version": "0.0.0",
+  "private": "true",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
-    "./types": "./dist/types.d.ts",
-    "./src/index.js": "./src/index.ts"
-  },
-  "main": "./dist/index.cjs",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "workspaces": [
-    "example"
-  ],
   "scripts": {
-    "astro": "npm exec --workspace=example -- astro",
-    "dev": "npm run dev --workspace=example",
-    "start": "npm run dev",
+    "dev": "pnpm --filter example run dev",
+    "start": "pnpm run dev",
     "lint": "eslint --ext .ts,.js,.astro .",
-    "prebuild": "npm run lint",
-    "build": "unbuild",
-    "ci": "npm run build && npm run build --workspace=example",
+    "prebuild": "pnpm run lint",
+    "build": "pnpm -r run build",
     "prepare": "husky",
     "release": "release-it --npm.skipChecks"
   },
@@ -53,46 +29,22 @@
       "release": true
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shishkin/astro-asciidoc.git"
-  },
-  "homepage": "https://github.com/shishkin/astro-asciidoc",
-  "keywords": [
-    "astro",
-    "astro-integration",
-    "withastro",
-    "asciidoc",
-    "asciidoctor",
-    "adoc"
-  ],
-  "author": "Sergey Shishkin <sergey@shishkin.org>",
-  "license": "MIT",
-  "peerDependencies": {
-    "astro": "^2.8.0 || ^3.0.0 || ^4.0.0",
-    "vite": "^4.3.9 || ^5.0.0 || ^6.0.0 || ^7.0.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
+    "@eslint/js": "9.36.0",
     "@release-it/conventional-changelog": "10.0.1",
-    "@types/eslint": "9.6.1",
-    "@astrojs/check": "0.9.4",
-    "@typescript-eslint/eslint-plugin": "8.43.0",
-    "@typescript-eslint/parser": "8.43.0",
-    "astro": "4.16.19",
-    "eslint": "8.57.0",
+    "@typescript-eslint/parser": "8.44.1",
+    "eslint": "9.36.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-astro": "1.3.1",
     "eslint-plugin-prettier": "5.5.4",
     "husky": "9.1.7",
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
-    "release-it": "19.0.4",
+    "release-it": "19.0.5",
     "typescript": "5.9.2",
-    "unbuild": "3.6.1"
+    "typescript-eslint": "8.44.1"
   },
-  "dependencies": {
-    "@asciidoctor/core": "3.0.4"
-  }
+  "packageManager": "pnpm@10.17.0+sha512.fce8a3dd29a4ed2ec566fb53efbb04d8c44a0f05bc6f24a73046910fb9c3ce7afa35a0980500668fa3573345bd644644fa98338fa168235c80f4aa17aa17fbef"
 }

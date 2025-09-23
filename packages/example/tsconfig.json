@@ -3,7 +3,6 @@
   "compilerOptions": {
     "exactOptionalPropertyTypes": false,
     "baseUrl": ".",
-    "moduleResolution": "Node",
     "paths": {
       "~/*": ["src/*"]
     }

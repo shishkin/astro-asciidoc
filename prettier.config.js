@@ -1,5 +1,5 @@
-/** @type {import("prettier").Options} */
-module.exports = {
+/** @type {import("prettier").Config} */
+export default {
   printWidth: 100,
   plugins: ["prettier-plugin-astro"],
   overrides: [
