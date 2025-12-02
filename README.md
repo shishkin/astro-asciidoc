@@ -133,7 +133,7 @@ import * as doc from "./index.adoc";
 Please note that the default export is the `Content` component itself.
 In order to access named exports, `import * as doc` or `import { frontmatter }` syntax should be used.
 
-See [example](./example/) project for more details.
+See [example](./packages/example/) project for more details.
 
 ## Caveats
 
@@ -142,7 +142,7 @@ That means that all options that need to be passed to the Asciidoctor converter 
 In particular it is currently not possible to pass extensions and syntax highlighters as functions.
 They need to be in separate Javascript modules and passed through via module file path.
 Writing extensions and syntax highlighters in TypeScript is also currently not possible.
-See [example](./example/) project for a sample syntax highlighter integration.
+See [example](./packages/example/) project for a sample syntax highlighter integration.
 
 For the same reason it is not possible to expose Asciidoctor classes like `Document` and `Section` directly in loaded frontmatter.
 As an alternative one can write an Asciidoctor extension that will extract required data from the document and store it in document attributes.
