@@ -1,6 +1,5 @@
 import type { ProcessorOptions } from "@asciidoctor/core";
 import type { AstroIntegration } from "astro";
-import astroJsx from "astro/jsx/renderer.js";
 import type { ViteDevServer } from "vite";
 import AsciidocConverter from "./asciidoctor.js";
 import type { InitOptions } from "./worker.js";
@@ -45,7 +44,7 @@ export default function asciidoc(opts?: Options): AstroIntegration {
         const { addPageExtension, addRenderer, updateConfig, addWatchFile } =
           params as InternalHookParams;
 
-        addRenderer(astroJsx);
+        addRenderer({ name: "astro:mdx", serverEntrypoint: "@astrojs/mdx/server.js" });
         addPageExtension(asciidocFileExt);
 
         updateConfig({
@@ -54,7 +53,6 @@ export default function asciidoc(opts?: Options): AstroIntegration {
               {
                 name: "vite-plugin-astro-asciidoc",
                 configureServer(s) {
-                  // @ts-expect-error type conflict in dependencies
                   server = s as ViteDevServer;
                 },
                 async transform(_code, id) {
