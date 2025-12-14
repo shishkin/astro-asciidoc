@@ -15,7 +15,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "astro": "4.16.19",
+    "astro": "5.16.5",
     "astro-asciidoc": "workspace:*"
   }
 }
