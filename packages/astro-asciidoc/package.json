@@ -29,8 +29,16 @@
   "release-it": {
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": "conventionalcommits",
-        "infile": "../../CHANGELOG.md"
+        "infile": "../../CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "chore",
+              "hidden": true
+            }
+          ]
+        }
       }
     },
     "git": {
