@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "release": "release-it minor"
+    "release": "release-it"
   },
   "release-it": {
     "plugins": {
