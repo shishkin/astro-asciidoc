@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "release": "release-it minor --npm.skipChecks"
+    "release": "release-it minor"
   },
   "release-it": {
     "plugins": {
@@ -37,7 +37,8 @@
       "requireCleanWorkingDir": false
     },
     "npm": {
-      "publish": true
+      "publish": true,
+      "skipChecks": true
     },
     "github": {
       "release": true
