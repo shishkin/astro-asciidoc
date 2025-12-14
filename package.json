@@ -10,24 +10,7 @@
     "prebuild": "pnpm run lint",
     "build": "pnpm -r run build",
     "prepare": "husky",
-    "release": "release-it --npm.skipChecks"
-  },
-  "release-it": {
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "conventionalcommits",
-        "infile": "CHANGELOG.md"
-      }
-    },
-    "git": {
-      "requireCleanWorkingDir": false
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    }
+    "release": "pnpm --filter astro-asciidoc run release"
   },
   "devDependencies": {
     "@commitlint/cli": "20.1.0",

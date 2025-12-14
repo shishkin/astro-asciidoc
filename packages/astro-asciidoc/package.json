@@ -23,7 +23,25 @@
     "src"
   ],
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "release": "release-it minor --dry-run --npm.skipChecks"
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "conventionalcommits",
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "git": {
+      "requireCleanWorkingDir": false
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    }
   },
   "repository": {
     "type": "git",
