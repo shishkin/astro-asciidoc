@@ -10,7 +10,7 @@ export default defineConfig(
   astro.configs.recommended,
   prettierConfig,
   {
-    ignores: ["**/dist/"],
+    ignores: ["**/dist/", "**/.astro/"],
   },
   {
     rules: {
