@@ -24,13 +24,13 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "release": "release-it minor --dry-run --npm.skipChecks"
+    "release": "release-it minor --npm.skipChecks"
   },
   "release-it": {
     "plugins": {
       "@release-it/conventional-changelog": {
         "preset": "conventionalcommits",
-        "infile": "CHANGELOG.md"
+        "infile": "../../CHANGELOG.md"
       }
     },
     "git": {
