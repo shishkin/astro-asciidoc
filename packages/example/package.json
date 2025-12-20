@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.12",
-    "astro": "5.16.5",
+    "astro": "5.16.6",
     "astro-asciidoc": "workspace:*"
   }
 }
