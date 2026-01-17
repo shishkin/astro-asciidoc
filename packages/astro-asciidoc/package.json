@@ -71,7 +71,7 @@
     "@asciidoctor/core": "3.0.4"
   },
   "devDependencies": {
-    "astro": "5.16.8",
+    "astro": "5.16.11",
     "typescript": "5.9.3",
     "unbuild": "3.6.1"
   },
