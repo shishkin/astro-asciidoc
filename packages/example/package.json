@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "shiki": "3.21.0",
+    "shiki": "3.22.0",
     "typescript": "5.9.3"
   },
   "dependencies": {
