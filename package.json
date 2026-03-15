@@ -13,8 +13,8 @@
     "release": "pnpm --filter astro-asciidoc run release"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.4.4",
-    "@commitlint/config-conventional": "20.4.4",
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
     "@eslint/js": "10.0.1",
     "@release-it/conventional-changelog": "10.0.6",
     "@typescript-eslint/parser": "8.57.0",
