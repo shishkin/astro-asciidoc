@@ -15,8 +15,8 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.12",
-    "astro": "5.18.1",
+    "@astrojs/mdx": "^5.0.0",
+    "astro": "6.0.4",
     "astro-asciidoc": "workspace:*"
   }
 }
