@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: 20.5.0
-        version: 20.5.0(@types/node@24.5.2)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)(typescript@6.0.3)
+        version: 20.5.0(@types/node@24.5.2)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(typescript@6.0.3)
       '@commitlint/config-conventional':
         specifier: 20.5.0
         version: 20.5.0
@@ -19,7 +19,7 @@ importers:
         version: 10.0.1(eslint@9.36.0(jiti@2.6.1))
       '@release-it/conventional-changelog':
         specifier: 10.0.6
-        version: 10.0.6(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)(release-it@20.0.0(@types/node@24.5.2)(magicast@0.5.2))
+        version: 10.0.6(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@20.0.0(@types/node@24.5.2)(magicast@0.5.2))
       '@typescript-eslint/parser':
         specifier: 8.58.2
         version: 8.58.2(eslint@9.36.0(jiti@2.6.1))(typescript@6.0.3)
@@ -61,14 +61,14 @@ importers:
         version: 3.0.4
       '@astrojs/mdx':
         specifier: ^4.0.0 || ^5.0.0
-        version: 5.0.0(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
+        version: 5.0.0(astro@6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
       vite:
         specifier: ^4.3.9 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
         version: 7.3.1(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.2)
     devDependencies:
       astro:
-        specifier: 6.1.7
-        version: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+        specifier: 6.1.8
+        version: 6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -80,10 +80,10 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^5.0.0
-        version: 5.0.3(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
+        version: 5.0.3(astro@6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
       astro:
-        specifier: 6.1.7
-        version: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+        specifier: 6.1.8
+        version: 6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       astro-asciidoc:
         specifier: workspace:*
         version: link:../astro-asciidoc
@@ -164,8 +164,8 @@ packages:
     resolution: {integrity: sha512-nksZQVjlferuWzhPsBpQ1JE5XuKAf1id1/9Hj4a9KG4+ofrlzxUUwX4YGQF/SuDiuiGKEnzopGOt38F3AnVWsQ==}
     engines: {node: '>=22.12.0'}
 
-  '@astrojs/telemetry@3.3.0':
-    resolution: {integrity: sha512-UFBgfeldP06qu6khs/yY+q1cDAaArM2/7AEIqQ9Cuvf7B1hNLq0xDrZkct+QoIGyjq56y8IaE2I3CTvG99mlhQ==}
+  '@astrojs/telemetry@3.3.1':
+    resolution: {integrity: sha512-7fcIxXS9J4ls5tr8b3ww9rbAIz2+HrhNJYZdkAhhB4za/I5IZ/60g+Bs8q7zwG0tOIZfNB4JWhVJ1Qkl/OrNCw==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
 
   '@astrojs/yaml2ts@0.2.3':
@@ -1515,8 +1515,8 @@ packages:
     resolution: {integrity: sha512-aOLc/aDR7lTWAHlytEefwn4Y6qs6uMr69DZvUx2A1AOAZsWhGB/paiRWPtVchh9wzMvLeqr+DkbENhVreVr9AQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@6.1.7:
-    resolution: {integrity: sha512-pvZysIUV2C2nRv8N7cXAkCLcfDQz/axAxF09SqiTz1B+xnvbhy6KzL2I6J15ZBXk8k0TfMD75dJ151QyQmAqZA==}
+  astro@6.1.8:
+    resolution: {integrity: sha512-6fT9M12U3fpi13DiPavNKDIoBflASTSxmKTEe+zXhWtlebQuOqfOnIrMWyRmlXp+mgDsojmw+fVFG9LUTzKSog==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2404,6 +2404,11 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
 
+  is-docker@4.0.0:
+    resolution: {integrity: sha512-LHE+wROyG/Y/0ZnbktRCoTix2c1RhgWaZraMZ8o1Q7zCh0VSrICJQO5oqIIISrcSBtrXv0o233w1IYwsWCjTzA==}
+    engines: {node: '>=20'}
+    hasBin: true
+
   is-extglob@2.1.1:
     resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
     engines: {node: '>=0.10.0'}
@@ -2459,6 +2464,10 @@ packages:
 
   is-wsl@3.1.0:
     resolution: {integrity: sha512-UcVfVfaK4Sc4m7X3dUSoHoozQGBEFeDC+zVo06t98xe8CzHSZZBekNXH+tu0NalHolcJ/QAGqS46Hef7QXBIMw==}
+    engines: {node: '>=16'}
+
+  is-wsl@3.1.1:
+    resolution: {integrity: sha512-e6rvdUCiQCAuumZslxRJWR/Doq4VpPR82kqclvcS0efgt430SlGIk05vdCN58+VrzgtIcfNODjozVielycD4Sw==}
     engines: {node: '>=16'}
 
   isexe@2.0.0:
@@ -4177,12 +4186,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@5.0.0(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
+  '@astrojs/mdx@5.0.0(astro@6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 7.0.0
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+      astro: 6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       es-module-lexer: 2.0.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4196,12 +4205,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@5.0.3(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
+  '@astrojs/mdx@5.0.3(astro@6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 7.1.0
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+      astro: 6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       es-module-lexer: 2.0.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4223,17 +4232,14 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/telemetry@3.3.0':
+  '@astrojs/telemetry@3.3.1':
     dependencies:
       ci-info: 4.4.0
-      debug: 4.4.3
       dlv: 1.1.3
       dset: 3.1.4
-      is-docker: 3.0.0
-      is-wsl: 3.1.0
+      is-docker: 4.0.0
+      is-wsl: 3.1.1
       which-pm-runs: 1.1.0
-    transitivePeerDependencies:
-      - supports-color
 
   '@astrojs/yaml2ts@0.2.3':
     dependencies:
@@ -4271,12 +4277,12 @@ snapshots:
       '@clack/core': 1.1.0
       sisteransi: 1.0.5
 
-  '@commitlint/cli@20.5.0(@types/node@24.5.2)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)(typescript@6.0.3)':
+  '@commitlint/cli@20.5.0(@types/node@24.5.2)(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(typescript@6.0.3)':
     dependencies:
       '@commitlint/format': 20.5.0
       '@commitlint/lint': 20.5.0
       '@commitlint/load': 20.5.0(@types/node@24.5.2)(typescript@6.0.3)
-      '@commitlint/read': 20.5.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)
+      '@commitlint/read': 20.5.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)
       '@commitlint/types': 20.5.0
       tinyexec: 1.0.2
       yargs: 17.7.2
@@ -4347,11 +4353,11 @@ snapshots:
       conventional-changelog-angular: 8.3.0
       conventional-commits-parser: 6.3.0
 
-  '@commitlint/read@20.5.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)':
+  '@commitlint/read@20.5.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)':
     dependencies:
       '@commitlint/top-level': 20.4.3
       '@commitlint/types': 20.5.0
-      git-raw-commits: 5.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)
+      git-raw-commits: 5.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)
       minimist: 1.2.8
       tinyexec: 1.1.1
     transitivePeerDependencies:
@@ -4985,9 +4991,9 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@release-it/conventional-changelog@10.0.6(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)(release-it@20.0.0(@types/node@24.5.2)(magicast@0.5.2))':
+  '@release-it/conventional-changelog@10.0.6(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@20.0.0(@types/node@24.5.2)(magicast@0.5.2))':
     dependencies:
-      '@conventional-changelog/git-client': 2.6.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)
+      '@conventional-changelog/git-client': 2.6.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)
       concat-stream: 2.0.0
       conventional-changelog: 7.2.0(conventional-commits-filter@5.0.0)
       conventional-changelog-angular: 8.3.0
@@ -5449,12 +5455,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2):
+  astro@6.1.8(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 3.0.1
       '@astrojs/internal-helpers': 0.8.0
       '@astrojs/markdown-remark': 7.1.0
-      '@astrojs/telemetry': 3.3.0
+      '@astrojs/telemetry': 3.3.1
       '@capsizecss/unpack': 4.0.0
       '@clack/prompts': 1.1.0
       '@oslojs/encoding': 1.1.0
@@ -6317,9 +6323,9 @@ snapshots:
       nypm: 0.6.2
       pathe: 2.0.3
 
-  git-raw-commits@5.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0):
+  git-raw-commits@5.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1):
     dependencies:
-      '@conventional-changelog/git-client': 2.6.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)
+      '@conventional-changelog/git-client': 2.6.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)
       meow: 13.2.0
     transitivePeerDependencies:
       - conventional-commits-filter
@@ -6592,6 +6598,8 @@ snapshots:
 
   is-docker@3.0.0: {}
 
+  is-docker@4.0.0: {}
+
   is-extglob@2.1.1: {}
 
   is-fullwidth-code-point@3.0.0: {}
@@ -6629,6 +6637,10 @@ snapshots:
   is-unicode-supported@2.1.0: {}
 
   is-wsl@3.1.0:
+    dependencies:
+      is-inside-container: 1.0.0
+
+  is-wsl@3.1.1:
     dependencies:
       is-inside-container: 1.0.0
 
