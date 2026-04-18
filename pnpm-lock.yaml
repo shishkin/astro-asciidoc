@@ -61,14 +61,14 @@ importers:
         version: 3.0.4
       '@astrojs/mdx':
         specifier: ^4.0.0 || ^5.0.0
-        version: 5.0.0(astro@6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
+        version: 5.0.0(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
       vite:
         specifier: ^4.3.9 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
         version: 7.3.1(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.2)
     devDependencies:
       astro:
-        specifier: 6.1.5
-        version: 6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+        specifier: 6.1.7
+        version: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -80,10 +80,10 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^5.0.0
-        version: 5.0.3(astro@6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
+        version: 5.0.3(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))
       astro:
-        specifier: 6.1.5
-        version: 6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+        specifier: 6.1.7
+        version: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       astro-asciidoc:
         specifier: workspace:*
         version: link:../astro-asciidoc
@@ -1518,8 +1518,8 @@ packages:
     resolution: {integrity: sha512-aOLc/aDR7lTWAHlytEefwn4Y6qs6uMr69DZvUx2A1AOAZsWhGB/paiRWPtVchh9wzMvLeqr+DkbENhVreVr9AQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@6.1.5:
-    resolution: {integrity: sha512-AJVw/JlssxUCBFi3Hp4djL8Pt7wUQqStBBawCd8cNGBBM2lBzp/rXGguzt4OcMfW+86fs0hpFwMyopHM2r6d3g==}
+  astro@6.1.7:
+    resolution: {integrity: sha512-pvZysIUV2C2nRv8N7cXAkCLcfDQz/axAxF09SqiTz1B+xnvbhy6KzL2I6J15ZBXk8k0TfMD75dJ151QyQmAqZA==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3471,9 +3471,6 @@ packages:
   sass-formatter@0.7.9:
     resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
 
-  sax@1.4.1:
-    resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==}
-
   sax@1.6.0:
     resolution: {integrity: sha512-6R3J5M4AcbtLUdZmRv2SygeVaM7IhrLXu9BmnOGmmACak8fiUtOsYNWUS4uK7upbmHIBbLBeFeI//477BKLBzA==}
     engines: {node: '>=11.0.0'}
@@ -3617,11 +3614,6 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
-
-  svgo@4.0.0:
-    resolution: {integrity: sha512-VvrHQ+9uniE+Mvx3+C9IEe/lWasXCU0nXMY2kZeLrHNICuRiC8uMPyM14UEaMOFA5mhyQqEkB02VoQ16n3DLaw==}
-    engines: {node: '>=16'}
-    hasBin: true
 
   svgo@4.0.1:
     resolution: {integrity: sha512-XDpWUOPC6FEibaLzjfe0ucaV0YrOjYotGJO1WpF0Zd+n6ZGEQUsSugaoLq9QkEZtAfQIxT42UChcssDVPP3+/w==}
@@ -4232,12 +4224,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@5.0.0(astro@6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
+  '@astrojs/mdx@5.0.0(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 7.0.0
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+      astro: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       es-module-lexer: 2.0.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4251,12 +4243,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@5.0.3(astro@6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
+  '@astrojs/mdx@5.0.3(astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 7.1.0
       '@mdx-js/mdx': 3.1.1
       acorn: 8.16.0
-      astro: 6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
+      astro: 6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2)
       es-module-lexer: 2.0.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4408,7 +4400,7 @@ snapshots:
       '@commitlint/types': 20.5.0
       git-raw-commits: 5.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.3.0)
       minimist: 1.2.8
-      tinyexec: 1.0.2
+      tinyexec: 1.1.1
     transitivePeerDependencies:
       - conventional-commits-filter
       - conventional-commits-parser
@@ -5512,7 +5504,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@6.1.5(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2):
+  astro@6.1.7(@types/node@24.5.2)(jiti@2.6.1)(rollup@4.52.2)(typescript@6.0.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 3.0.1
       '@astrojs/internal-helpers': 0.8.0
@@ -5552,7 +5544,7 @@ snapshots:
       rehype: 13.0.2
       semver: 7.7.4
       shiki: 4.0.2
-      smol-toml: 1.6.0
+      smol-toml: 1.6.1
       svgo: 4.0.1
       tinyclip: 0.1.12
       tinyexec: 1.1.1
@@ -7387,7 +7379,7 @@ snapshots:
       consola: 3.4.2
       pathe: 2.0.3
       pkg-types: 2.3.0
-      tinyexec: 1.0.2
+      tinyexec: 1.1.1
 
   obug@2.1.1: {}
 
@@ -7720,7 +7712,7 @@ snapshots:
     dependencies:
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
-      svgo: 4.0.0
+      svgo: 4.0.1
 
   postcss-unique-selectors@7.0.4(postcss@8.5.6):
     dependencies:
@@ -8053,8 +8045,6 @@ snapshots:
     dependencies:
       suf-log: 2.5.3
 
-  sax@1.4.1: {}
-
   sax@1.6.0: {}
 
   scule@1.3.0: {}
@@ -8214,16 +8204,6 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  svgo@4.0.0:
-    dependencies:
-      commander: 11.1.0
-      css-select: 5.2.2
-      css-tree: 3.1.0
-      css-what: 6.2.2
-      csso: 5.0.5
-      picocolors: 1.1.1
-      sax: 1.4.1
 
   svgo@4.0.1:
     dependencies:
