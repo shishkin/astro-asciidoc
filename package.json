@@ -13,10 +13,10 @@
     "release": "pnpm --filter astro-asciidoc run release"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.0",
-    "@commitlint/config-conventional": "20.5.0",
+    "@commitlint/cli": "21.0.0",
+    "@commitlint/config-conventional": "21.0.0",
     "@eslint/js": "10.0.1",
-    "@release-it/conventional-changelog": "10.0.6",
+    "@release-it/conventional-changelog": "11.0.0",
     "@typescript-eslint/parser": "8.58.2",
     "eslint": "9.36.0",
     "eslint-config-prettier": "10.1.8",
@@ -29,5 +29,5 @@
     "typescript": "6.0.3",
     "typescript-eslint": "8.58.2"
   },
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
+  "packageManager": "pnpm@11.0.9"
 }
