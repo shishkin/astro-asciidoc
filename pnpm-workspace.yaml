@@ -1,6 +1,12 @@
 packages:
   - "packages/*"
 
+allowBuilds:
+  esbuild: true
+  sharp: true
+
 onlyBuiltDependencies:
   - esbuild
   - sharp
+
+savePrefix: ""
