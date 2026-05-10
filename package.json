@@ -17,7 +17,7 @@
     "@commitlint/config-conventional": "21.0.0",
     "@eslint/js": "10.0.1",
     "@release-it/conventional-changelog": "11.0.0",
-    "@typescript-eslint/parser": "8.58.2",
+    "@typescript-eslint/parser": "8.59.2",
     "eslint": "9.36.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-astro": "1.7.0",
@@ -25,9 +25,9 @@
     "husky": "9.1.7",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
-    "release-it": "20.0.0",
+    "release-it": "20.0.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.58.2"
+    "typescript-eslint": "8.59.2"
   },
   "packageManager": "pnpm@11.0.9"
 }
