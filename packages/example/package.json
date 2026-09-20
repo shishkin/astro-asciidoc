@@ -14,7 +14,7 @@
     "typescript": "7.0.2"
   },
   "dependencies": {
-    "@astrojs/mdx": "^7.0.0",
+    "@astrojs/mdx": "^8.0.0",
     "astro": "7.3.3",
     "astro-asciidoc": "workspace:*"
   }
