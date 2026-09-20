@@ -7,7 +7,7 @@ export default class AsciidocConverter extends EventEmitter {
 
   constructor(opts?: InitOptions) {
     super({ captureRejections: true });
-    const url = new URL("./worker.cjs", import.meta.url);
+    const url = new URL("./worker.mjs", import.meta.url);
     this.worker = new Worker(url, {
       workerData: opts,
     });

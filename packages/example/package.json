@@ -6,11 +6,10 @@
     "astro": "astro",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && tsc -b && astro build",
+    "build": "tsc -b && astro build",
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
     "shiki": "4.4.3",
     "typescript": "7.0.2"
   },

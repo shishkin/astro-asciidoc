@@ -3,8 +3,8 @@
   "compilerOptions": {
     "exactOptionalPropertyTypes": false,
     "paths": {
-      "~/*": ["./src/*"],
-    },
+      "~/*": ["./src/*"]
+    }
   },
-  "include": ["src/", "astro.config.ts"],
+  "include": ["src/", "astro.config.ts"]
 }
