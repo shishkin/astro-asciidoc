@@ -1,15 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":semanticCommits",
-    "helpers:disableTypesNodeMajor"
-  ],
+  "extends": ["config:recommended", ":semanticCommits", "helpers:disableTypesNodeMajor"],
   "timezone": "Europe/Berlin",
   "schedule": ["every weekend on the 3rd week of the month"],
   "automergeType": "branch",
   "prHourlyLimit": 0,
-  "ignoreDeps": ["eslint"],
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies", "packageManager"],

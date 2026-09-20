@@ -1,7 +1,7 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
 import asciidoc from "astro-asciidoc";
 import type { default as shikiHighlighter } from "./shiki-highlighter.js";
-import { fileURLToPath } from "node:url";
 
 type ShikiOptions = Parameters<typeof shikiHighlighter>[0];
 

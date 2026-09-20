@@ -1,14 +1,14 @@
+import { fileURLToPath, pathToFileURL, URL } from "node:url";
+import { parentPort, workerData } from "node:worker_threads";
 import type {
+  Asciidoctor,
   Document,
   ProcessorOptions,
-  Asciidoctor,
   Section,
   SyntaxHighlighterFunctions,
 } from "@asciidoctor/core";
 import asciidoctor from "@asciidoctor/core";
 import type { MarkdownHeading } from "astro";
-import { fileURLToPath, pathToFileURL, URL } from "node:url";
-import { parentPort, workerData } from "node:worker_threads";
 
 export interface InitOptions {
   /**

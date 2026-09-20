@@ -16,21 +16,19 @@ const { title = "Astro", headings = [] } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    {
-      !!headings?.length && (
-        <aside>
-          <nav>
-            <ul>
-              {headings.map((h) => (
-                <li data-depth={h.depth}>
-                  <a href={`#${h.slug}`}>{h.text}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
-      )
-    }
+    {!!headings?.length && (
+      <aside>
+        <nav>
+          <ul>
+            {headings.map((h) => (
+              <li data-depth={h.depth}>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    )}
     <main>
       <slot />
     </main>
