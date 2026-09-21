@@ -1,4 +1,5 @@
-import type { AstroIntegration } from "astro";
+import { fileURLToPath } from "node:url";
+import type { AstroIntegration, ContentEntryType } from "astro";
 import type { ViteDevServer } from "vite";
 import * as asciidoctor from "./asciidoctor.js";
 
@@ -9,6 +10,7 @@ type InternalHookParams = Parameters<
   NonNullable<AstroIntegration["hooks"]["astro:config:setup"]>
 >[0] & {
   addPageExtension(ext: string): void;
+  addContentEntryType(entryType: ContentEntryType): void;
 };
 
 export default function asciidoc(opts?: asciidoctor.Options): AstroIntegration {
@@ -32,7 +34,7 @@ export default function asciidoc(opts?: asciidoctor.Options): AstroIntegration {
     name: "asciidoc",
     hooks: {
       "astro:config:setup": async (params) => {
-        const { addPageExtension, addRenderer, updateConfig, addWatchFile } =
+        const { addPageExtension, addContentEntryType, addRenderer, updateConfig, addWatchFile } =
           params as InternalHookParams;
 
         addRenderer({ name: "astro:mdx", serverEntrypoint: "@astrojs/mdx/server.js" });
@@ -40,6 +42,41 @@ export default function asciidoc(opts?: asciidoctor.Options): AstroIntegration {
 
         await asciidoctor.registerExtensions(extensions);
         await asciidoctor.registerHighlighters(highlighters);
+
+        addContentEntryType({
+          extensions: [asciidocFileExt],
+          async getEntryInfo({ contents, fileUrl }) {
+            const data = await asciidoctor.load(fileURLToPath(fileUrl), documentOptions);
+            return {
+              data: data,
+              body: contents,
+              rawData: contents,
+              slug: data.asciidoc.slug as string,
+            };
+          },
+          handlePropagation: false,
+          contentModuleTypes: `declare module "astro:content" {
+  interface Render {
+    ".adoc": Promise<{
+      Content: import("astro").MarkdownInstance<{}>["Content"];
+      headings: import("astro").MarkdownHeading[];
+      remarkPluginFrontmatter: Record<string, any>;
+    }>;
+  }
+}`,
+          async getRenderFunction() {
+            return async (entry) => {
+              if (!entry.filePath) {
+                return { html: "" };
+              }
+              const doc = await asciidoctor.convert(entry.filePath, {
+                ...documentOptions,
+                standalone: false,
+              });
+              return { html: doc.html, metadata: { headings: doc.headings } };
+            };
+          },
+        });
 
         updateConfig({
           vite: {
