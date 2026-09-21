@@ -9,7 +9,7 @@
     "lint": "biome check .",
     "format": "biome check --write .",
     "prebuild": "pnpm run lint",
-    "build": "pnpm -r run build",
+    "build": "pnpm -r --sequential run build",
     "prepare": "husky",
     "release": "pnpm --filter astro-asciidoc run release"
   },

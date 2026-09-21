@@ -1,8 +1,9 @@
-import type { ProcessorOptions } from "@asciidoctor/core";
 import type { AstroIntegration } from "astro";
 import type { ViteDevServer } from "vite";
-import AsciidocConverter from "./asciidoctor.js";
-import type { InitOptions } from "./worker.js";
+import * as asciidoctor from "./asciidoctor.js";
+
+export type { Options } from "./asciidoctor.js";
+export { SyntaxHighlighterBase } from "./asciidoctor.js";
 
 type InternalHookParams = Parameters<
   NonNullable<AstroIntegration["hooks"]["astro:config:setup"]>
@@ -10,25 +11,15 @@ type InternalHookParams = Parameters<
   addPageExtension(ext: string): void;
 };
 
-/**
- * Options for AsciiDoc conversion.
- */
-export interface Options extends InitOptions {
-  /**
-   * Options passed to Asciidoctor document load and document convert.
-   */
-  options?: ProcessorOptions;
-}
-
-export default function asciidoc(opts?: Options): AstroIntegration {
+export default function asciidoc(opts?: asciidoctor.Options): AstroIntegration {
   const asciidocFileExt = ".adoc";
-  const { options: documentOptions, highlighters } = opts ?? {};
-  const converter = new AsciidocConverter({
-    highlighters,
-  });
+  const { options: documentOptions, highlighters, extensions } = opts ?? {};
   let server: ViteDevServer;
 
   function watchIncludes(file: string, includes: string[]) {
+    if (!server) {
+      return;
+    }
     server.watcher.on("change", async (f) => {
       if (!includes.includes(f)) return;
       const m = server.moduleGraph.getModuleById(file);
@@ -40,12 +31,15 @@ export default function asciidoc(opts?: Options): AstroIntegration {
   return {
     name: "asciidoc",
     hooks: {
-      "astro:config:setup": (params) => {
+      "astro:config:setup": async (params) => {
         const { addPageExtension, addRenderer, updateConfig, addWatchFile } =
           params as InternalHookParams;
 
         addRenderer({ name: "astro:mdx", serverEntrypoint: "@astrojs/mdx/server.js" });
         addPageExtension(asciidocFileExt);
+
+        await asciidoctor.registerExtensions(extensions);
+        await asciidoctor.registerHighlighters(highlighters);
 
         updateConfig({
           vite: {
@@ -58,10 +52,7 @@ export default function asciidoc(opts?: Options): AstroIntegration {
                 async transform(_code, id) {
                   if (!id.endsWith(asciidocFileExt)) return;
 
-                  const doc = await converter.convert({
-                    file: id,
-                    options: documentOptions,
-                  });
+                  const doc = await asciidoctor.convert(id, documentOptions);
 
                   watchIncludes(id, doc.includes);
 
@@ -96,12 +87,6 @@ export default Content;`,
         });
 
         addWatchFile(new URL(import.meta.url));
-      },
-      "astro:server:done": async () => {
-        await converter.terminate();
-      },
-      "astro:build:done": async () => {
-        await converter.terminate();
       },
     },
   };

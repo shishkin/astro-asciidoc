@@ -17,7 +17,7 @@
     "src"
   ],
   "scripts": {
-    "build": "tsdown",
+    "build": "tsc -b && tsdown",
     "release": "release-it"
   },
   "release-it": {
@@ -62,7 +62,7 @@
   "author": "Sergey Shishkin <sergey@shishkin.org>",
   "license": "MIT",
   "dependencies": {
-    "@asciidoctor/core": "3.0.4"
+    "@asciidoctor/core": "4.0.11"
   },
   "devDependencies": {
     "astro": "7.3.3",
