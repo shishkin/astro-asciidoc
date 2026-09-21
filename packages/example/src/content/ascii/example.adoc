@@ -15,3 +15,5 @@ Some more text.
 
 * one
 * two
+
+include::partials/partial.adoc[]
