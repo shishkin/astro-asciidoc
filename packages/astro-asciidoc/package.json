@@ -17,6 +17,7 @@
     "src"
   ],
   "scripts": {
+    "check": "tsc -b",
     "build": "tsdown",
     "release": "release-it"
   },

@@ -19,7 +19,6 @@ Attention: this package hasn't reached v1 yet and breaking changes may be introd
 - Page outline/TOC is available in props as Astro `MarkdownHeadings`
 - Provide Asciidoctor converter options
 - Register Asciidoctor extensions and syntax highlighters
-- Runs Asciidoctor in a worker thread to prevent prototype pollution from Opal/Ruby runtime
 
 ## Usage
 
@@ -137,16 +136,10 @@ See [example](./packages/example/) project for more details.
 
 ## Caveats
 
-NOTE: This integration runs Asciidoctor in a worker thread to prevent [prototype pollution](https://github.com/shishkin/astro-asciidoc/issues/3) from the Opal/Ruby runtime.
-That means that all options that need to be passed to the Asciidoctor converter need to be serializable according to [worker threads message passing limitations](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
-In particular it is currently not possible to pass extensions and syntax highlighters as functions.
-They need to be in separate Javascript modules and passed through via module file path.
-Writing extensions and syntax highlighters in TypeScript is also currently not possible.
+Asciidoctor.js loads extensions from separate Javascript modules by path.
+It is currently not possible to pass them directly as functions or write them in TypeScript.
+However, since Asciidoctor.js v4 it is possible to pass direct instances of `SyntaxHighlighterBase` as highlighters.
 See [example](./packages/example/) project for a sample syntax highlighter integration.
-
-For the same reason it is not possible to expose Asciidoctor classes like `Document` and `Section` directly in loaded frontmatter.
-As an alternative one can write an Asciidoctor extension that will extract required data from the document and store it in document attributes.
-Attributes are available in frontmatter after import.
 
 ## Alternatives
 
@@ -156,4 +149,4 @@ Depending on your particular needs you might be interested in other similar proj
 - [**vite-plugin-asciidoc**](https://github.com/Djaler/vite-plugin-asciidoc) - General AsciiDoc Vite loader without any special Astro integration;
 - [**rollup-plugin-asciidoc**](https://github.com/carlosvin/rollup-plugin-asciidoc) - Genral AsciiDoc Rollup loader without any special Astro integration;
 
-When I last checked, those ran Asciidoctor directly and didn't prevent [prototype pollution](https://github.com/shishkin/astro-asciidoc/issues/3) from the Opal/Ruby runtime.
+Which all haven't been updated for a while at the time of writing.

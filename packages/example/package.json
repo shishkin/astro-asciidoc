@@ -6,7 +6,8 @@
     "astro": "astro",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "tsc -b && astro build",
+    "check": "tsc -b",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "devDependencies": {

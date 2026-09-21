@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "pnpm --filter example run dev",
     "start": "pnpm run dev",
-    "lint": "biome check .",
+    "check:lint": "biome check .",
+    "check": "pnpm run check:lint && pnpm -r run check",
     "format": "biome check --write .",
-    "prebuild": "pnpm run lint",
+    "prebuild": "pnpm run check",
     "build": "pnpm -r run build",
     "prepare": "husky",
     "release": "pnpm --filter astro-asciidoc run release"
