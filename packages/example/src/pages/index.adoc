@@ -10,6 +10,8 @@ Support AsciiDoc pages in Astro.
 
 Text paragraph.
 
+link:/collection[Collection Example].
+
 === Lists
 
 * List item

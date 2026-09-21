@@ -1,0 +1,16 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "~/layouts/Main.astro";
+
+const ascii = await getCollection("ascii");
+const doc = ascii.at(0);
+if (!doc) {
+  return new Response(null, { status: 404 });
+}
+const rendered = await render(doc);
+---
+
+<Layout title={doc.data.title} headings={rendered.headings}>
+  <h1>{doc.data.title}</h1>
+  <rendered.Content />
+</Layout>

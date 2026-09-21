@@ -1,0 +1,19 @@
+= Content Collection
+:description: An AsciiDoc document loaded from a content collection.
+
+This page is rendered from a content collection entry.
+
+== First section
+
+Content defined in `src/content/docs/example.adoc`.
+
+=== Nested section
+
+Some more text.
+
+== Second section
+
+* one
+* two
+
+include::partials/partial.adoc[]

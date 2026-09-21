@@ -113,19 +113,30 @@ export async function registerExtensions(extensions: InitOptions["extensions"]):
   }
 }
 
+function getFrontmatter(doc: Document): ConversionResult["frontmatter"] {
+  return {
+    title: doc.getTitle() ?? undefined,
+    asciidoc: doc.getAttributes(),
+  };
+}
+
+export async function load(
+  file: string,
+  options?: ProcessorOptions,
+): Promise<ConversionResult["frontmatter"]> {
+  const doc = await loadFile(file, options);
+  return getFrontmatter(doc);
+}
+
 export async function convert(file: string, options?: ProcessorOptions): Promise<ConversionResult> {
   const doc = await loadFile(file, options);
   const layout = (doc.getAttribute("layout") as string | null) ?? undefined;
-  const title = doc.getTitle() ?? undefined;
   const html = await doc.convert({ standalone: !layout, ...options });
 
   return {
     html,
     layout,
-    frontmatter: {
-      title,
-      asciidoc: doc.getAttributes(),
-    },
+    frontmatter: getFrontmatter(doc),
     headings: getHeadings(doc),
     includes: getIncludes(file, doc.getCatalog() as Catalog),
   };

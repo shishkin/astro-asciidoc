@@ -15,6 +15,7 @@ Attention: this package hasn't reached v1 yet and breaking changes may be introd
 - Access AsciiDoc page attributes in frontmatter props
 - Load AsciiDoc on the server-side
 - Support of Astro layouts
+- Support of Astro content collections
 - Render pages in standalone mode if no layout provided
 - Page outline/TOC is available in props as Astro `MarkdownHeadings`
 - Provide Asciidoctor converter options
