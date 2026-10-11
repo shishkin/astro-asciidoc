@@ -191,8 +191,8 @@ importers:
   packages/astro-asciidoc:
     dependencies:
       '@asciidoctor/core':
-        specifier: 4.0.11
-        version: 4.0.11
+        specifier: 4.1.1
+        version: 4.1.1
       '@astrojs/mdx':
         specifier: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
         version: 6.0.3(astro@7.3.3(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.9.0))(supports-color@7.2.0)
@@ -231,9 +231,14 @@ importers:
 
 packages:
 
-  '@asciidoctor/core@4.0.11':
-    resolution: {integrity: sha512-5uWPTLTiPJVQp9q4MllSROM2avdECzoT7oeVw/onT9H2PIdCCtQwKrSTvztwxMbSu/8cqHqZox/2qTBrQN454g==}
+  '@asciidoctor/core@4.1.1':
+    resolution: {integrity: sha512-kwynyx6FXXi985Q9tfIPUitZ/2vzISYmcUVVZXkSamwD91I5nL7TJt33HXjnBYwfzugLu36RZuhNA/DB4fogEA==}
     engines: {node: '>=20'}
+    peerDependencies:
+      highlight.js: ^11.0.0
+    peerDependenciesMeta:
+      highlight.js:
+        optional: true
 
   '@astrojs/compiler-binding-darwin-arm64@0.4.0':
     resolution: {integrity: sha512-ZVUwHundaQyFNjE6uoa0usaC0WOCitDCLS/4mdb4rOiJXwVUuKJBMxI5WMzXLWmamsXtK/Z//ifLXvV5Yeh4Hw==}
@@ -3539,7 +3544,7 @@ packages:
 
 snapshots:
 
-  '@asciidoctor/core@4.0.11': {}
+  '@asciidoctor/core@4.1.1': {}
 
   '@astrojs/compiler-binding-darwin-arm64@0.4.0':
     optional: true
