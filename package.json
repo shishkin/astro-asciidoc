@@ -22,5 +22,5 @@
     "release-it": "21.1.1",
     "typescript": "7.0.2"
   },
-  "packageManager": "pnpm@12.11.2"
+  "packageManager": "pnpm@12.14.0"
 }
