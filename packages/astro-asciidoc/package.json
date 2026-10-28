@@ -58,7 +58,7 @@
     "@asciidoctor/core": "4.1.1"
   },
   "devDependencies": {
-    "astro": "7.3.3",
+    "astro": "7.4.4",
     "tsdown": "0.23.1",
     "typescript": "7.0.2"
   },
