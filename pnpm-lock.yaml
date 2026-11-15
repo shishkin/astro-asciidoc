@@ -191,8 +191,8 @@ importers:
   packages/astro-asciidoc:
     dependencies:
       '@asciidoctor/core':
-        specifier: 4.1.1
-        version: 4.1.1
+        specifier: 4.2.1
+        version: 4.2.1
       '@astrojs/mdx':
         specifier: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
         version: 8.0.1(@astrojs/markdown-satteri@0.4.1)(astro@7.3.3(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.9.0))
@@ -231,8 +231,8 @@ importers:
 
 packages:
 
-  '@asciidoctor/core@4.1.1':
-    resolution: {integrity: sha512-kwynyx6FXXi985Q9tfIPUitZ/2vzISYmcUVVZXkSamwD91I5nL7TJt33HXjnBYwfzugLu36RZuhNA/DB4fogEA==}
+  '@asciidoctor/core@4.2.1':
+    resolution: {integrity: sha512-c/LvM4nnkeLhHryAQOI41AL7UlOowmydMhNaVoH4zecKo2HkyalaNodeVqueR2RVU0/MOg4HPikYtFMHdVXa4A==}
     engines: {node: '>=20'}
     peerDependencies:
       highlight.js: ^11.0.0
@@ -3100,7 +3100,7 @@ packages:
 
 snapshots:
 
-  '@asciidoctor/core@4.1.1': {}
+  '@asciidoctor/core@4.2.1': {}
 
   '@astrojs/compiler-binding-darwin-arm64@0.4.0':
     optional: true
