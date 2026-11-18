@@ -111,7 +111,7 @@ export const file = ${JSON.stringify(id)};
 export const title = ${JSON.stringify(doc.frontmatter.title)};
 export const frontmatter = ${JSON.stringify(doc.frontmatter)};
 export const headings = ${JSON.stringify(doc.headings)};
-export async function getHeadings() { return headings; }
+export function getHeadings() { return headings; }
 export function Content() {
   const content = h(Fragment, { "set:html": ${JSON.stringify(doc.html)} });
   ${
