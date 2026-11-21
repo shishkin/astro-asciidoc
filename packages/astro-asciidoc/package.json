@@ -55,7 +55,7 @@
   "author": "Sergey Shishkin <sergey@shishkin.org>",
   "license": "MIT",
   "dependencies": {
-    "@asciidoctor/core": "4.2.1"
+    "@asciidoctor/core": "4.3.0"
   },
   "devDependencies": {
     "astro": "7.3.3",
